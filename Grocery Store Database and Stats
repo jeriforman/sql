@@ -1,0 +1,33 @@
+--Create a grocery store database
+CREATE TABLE food_store (item TEXT PRIMARY KEY, category TEXT, price NUMERIC, dietary_restriction TEXT, lunch_special TEXT);
+
+INSERT INTO food_store VALUES("Fried Chicken", "All Day", 8, "None", "No");
+INSERT INTO food_store VALUES("Baked Chicken", "Lunch", 8, "GF", "Yes");
+INSERT INTO food_store VALUES("Shrimp and Grits", "All Day", 12, "None", "No");
+INSERT INTO food_store VALUES("Fried Fish", "All Day", 10, "None", "Yes");
+INSERT INTO food_store VALUES("Seafood Alfredo", "Dinner", 18, "None", "No");
+INSERT INTO food_store VALUES("Hot Dogs & Beans", "All Day", 5, "GF DF", "Yes");
+INSERT INTO food_store VALUES("Salmon & Rice", "All Day", 15, "GF", "Yes");
+INSERT INTO food_store VALUES("Fried Shrimp", "All Day", 10, "None", "Yes");
+INSERT INTO food_store VALUES("Fried Green Tomatoes", "Lunch", 5, "None", "Yes");
+INSERT INTO food_store VALUES("Scrambled Eggs", "All Day", 2, "None", "No");
+INSERT INTO food_store VALUES("Ramen", "All Day", 4, "None", "Yes");
+INSERT INTO food_store VALUES("Cold Cereal", "Breakfast", 2, "Vegetarian", "No");
+INSERT INTO food_store VALUES("Hot Cereal", "Breakfast", 2, "Vegetarian", "No");
+INSERT INTO food_store VALUES("Sushi", "All Day", 6, "GF DF", "Yes");
+INSERT INTO food_store VALUES("Pizza", "Lunch", 3, "None", "Yes");
+
+--Display the database ordered by price
+SELECT * FROM food_store 
+ORDER BY price desc;
+
+--What is the avg price of items in the lunch section? 
+SELECT AVG(price) "avg lunch item price"
+FROM food_store
+where category='lunch'; 
+
+--What are the most 5 expensive items? 
+SELECT item, price
+FROM food_store
+order by price desc
+limit 5; 
