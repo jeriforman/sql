@@ -1,4 +1,4 @@
-/* Create table about the people */
+/*Create table about the people*/
 
 CREATE TABLE people 
 (id INTEGER PRIMARY KEY, 
@@ -15,7 +15,7 @@ INSERT INTO people VALUES
 (5, "Jennifer Lopez", "singer", "Selena", "billboard"),
 (6, "Ben Affleck", "actor", "Batman", "golden globe");
 
-/* Create table about the peoples awards*/
+/*Create table about the peoples awards*/
 CREATE TABLE awards 
 (award_id INTEGER PRIMARY KEY,
 person_id INTEGER,
