@@ -1,0 +1,46 @@
+/* Create table about the people */
+
+CREATE TABLE people 
+(id INTEGER PRIMARY KEY, 
+name TEXT, 
+main_craft TEXT, 
+hit TEXT, 
+awards INTEGER);
+
+INSERT INTO people VALUES
+(1, "Beyonce", "singer", "Break My Soul", "grammy"),
+(2, "Jay-Z", "rapper", "Empire State of Mind", "grammy"),
+(3, "Zendaya", "actress", "Spider-Man", "emmy"),
+(4, "Tom Holland", "actor", "Avengers", "kids' choice"),
+(5, "Jennifer Lopez", "singer", "Selena", "billboard"),
+(6, "Ben Affleck", "actor", "Batman", "golden globe");
+
+/* Create table about the peoples awards*/
+CREATE TABLE awards 
+(award_id INTEGER PRIMARY KEY,
+person_id INTEGER,
+award_name TEXT,
+received_for TEXT,
+year_received INTEGER);
+
+INSERT INTO awards (person_id, award_name, received_for, year_received)
+VALUES
+(1, "MTV Video Music Award", "Best Music Video", 2016),
+(1, "Grammy Award", "Best Song", 2010),
+(2, "Grammy Award", "Best Performance", 2014),
+(2, "MTV Europe Music Award", "Best Male", 2009),
+(3, "Primetime Emmy Award", "Lead Actress", 2020),
+(4, "Teen Choice Award", "Summer Movie Star", 2019),
+(5, "Billboard Latin Music Award", "Best Vocal Duo", 2000),
+(6, "Golden Globe Award", "Best Screenplay", 1998),
+(6, "Academy Award", "Best Picture", 2013);
+
+/*Verify tables were created correctly*/
+SELECT * FROM people;
+
+SELECT * FROM awards;
+
+/*Award information for each person*/
+SELECT p.name, a.award_name, a.year_received
+FROM people p
+JOIN awards a ON p.id = a.person_id;
